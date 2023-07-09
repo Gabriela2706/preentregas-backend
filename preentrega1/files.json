@@ -1,0 +1,56 @@
+[
+  {
+    "id": 0,
+    "title": "Remera Guason",
+    "description": "Remera mangas cortas al cuerpo",
+    "price": "6420",
+    "thumbnail": "https://res.cloudinary.com/dy66f9pgr/image/upload/v1687020677/guason_cntzhv.jpg",
+    "code": "R_21",
+    "stock": 20
+  },
+  {
+    "id": 1,
+    "title": "Remera Batman",
+    "description": "Remera mangas cortas al cuerpo",
+    "price": "7520",
+    "thumbnail": "https://res.cloudinary.com/dy66f9pgr/image/upload/v1687020680/batman_djggwa.png",
+    "code": "R_25",
+    "stock": 17
+  },
+  {
+    "id": 2,
+    "title": "Remera Capitan America",
+    "description": "Remera mangas cortas al cuerpo",
+    "price": "6420",
+    "thumbnail": "https://res.cloudinary.com/dy66f9pgr/image/upload/v1687020677/capitan_america_k4zgbn.jpg",
+    "code": "R_35",
+    "stock": 15
+  },
+  {
+    "id": 3,
+    "title": "Remera Guason",
+    "description": "Remera mangas cortas al cuerpo",
+    "price": "6420",
+    "thumbnail": "https://res.cloudinary.com/dy66f9pgr/image/upload/v1687020677/guason_cntzhv.jpg",
+    "code": "R_21",
+    "stock": 20
+  },
+  {
+    "id": 4,
+    "title": "Remera Guason",
+    "description": "Remera mangas cortas al cuerpo",
+    "price": "6420",
+    "thumbnail": "https://res.cloudinary.com/dy66f9pgr/image/upload/v1687020677/guason_cntzhv.jpg",
+    "code": "R_21",
+    "stock": 20
+  },
+  {
+    "id": 5,
+    "title": "Remera Guason",
+    "description": "Remera mangas cortas al cuerpo",
+    "price": "6420",
+    "thumbnail": "https://res.cloudinary.com/dy66f9pgr/image/upload/v1687020677/guason_cntzhv.jpg",
+    "code": "R_21",
+    "stock": 20
+  }
+]
