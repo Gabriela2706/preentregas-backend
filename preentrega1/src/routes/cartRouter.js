@@ -1,7 +1,7 @@
 import { Router } from "express";
 import CartManager from "../classCartManager.js";
 const routerCart = Router();
-const managerCart = new CartManager("./db/cartFiles.json");
+const managerCart = new CartManager("../routes/cartFiles.json");
 
 //agrega un nuevo carrito (FUNCIONA CORRECTAMENTE Y CREA UN CARRITO NUEVO SIN PROBLEMAS.)
 routerCart.post("/", async (req, res) => {
