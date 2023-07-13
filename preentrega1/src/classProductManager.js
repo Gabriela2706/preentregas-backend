@@ -9,7 +9,10 @@ export default class ProductManager {
   }
 
   getProducts = async () => {
-    const fileProducts = await fs.promises.readFile("./files.json", "utf8");
+    const fileProducts = await fs.promises.readFile(
+      "./routes/products.json",
+      "utf8"
+    );
     const productParseado = JSON.parse(fileProducts);
 
     return productParseado;
@@ -19,8 +22,20 @@ export default class ProductManager {
 
   addProducts = async (prod) => {
     try {
-      const { title, description, price, thumbnail, code, stock } = prod;
-      const fileProducts = await fs.promises.readFile("./files.json", "utf8");
+      const {
+        title,
+        description,
+        price,
+        thumbnail = [],
+        code,
+        stock,
+        category,
+        status = true,
+      } = prod;
+      const fileProducts = await fs.promises.readFile(
+        "./routes/products.json",
+        "utf8"
+      );
       const productParseado = JSON.parse(fileProducts);
       //----
 
@@ -50,7 +65,7 @@ export default class ProductManager {
       productParseado.push(newProduct); //Pusheo este nuevo producto al array parseado
 
       await fs.promises.writeFile(
-        "./files.json",
+        "./routes/products.json",
         JSON.stringify(this.products, null, 2)
       ); //Escribo en el archivo el nuevo producto pasado a stringify
       return productParseado;
@@ -61,13 +76,19 @@ export default class ProductManager {
   //------------------------------------------------------------------------------------------
   //OBTENCION DE PRODUCTO POR ID
 
-  getProductById = (idProduct) => {
-    const findProduct = this.products.find(
+  getProductById = async (idProduct) => {
+    const fileProducts = await fs.promises.readFile(
+      "./routes/products.json",
+      "utf8"
+    );
+    const productParseado = JSON.parse(fileProducts);
+
+    const findProduct = productParseado.find(
       (product) => product.id == idProduct
     );
     if (findProduct) {
       console.log(`Producto Encontrado!! `);
-      return encontrarProducto;
+      return findProduct;
     } else {
       return `El producto con id ${idProduct} no se encuentra en nuestra lista`;
     }
@@ -98,7 +119,7 @@ export default class ProductManager {
     //---
     //Le doy permanencia a la lista nueva modificada
     await fs.promises.writeFile(
-      "./files.json",
+      "./routes/products.json",
       JSON.stringify(updateProducts, null, 2)
     );
     //---
@@ -116,7 +137,7 @@ export default class ProductManager {
       (product) => product.id !== idProductDelete
     );
     await fs.promises.writeFile(
-      "./files.json",
+      "./routes/products.json",
       JSON.stringify(newListOfProducts, null, 2)
     );
     return newListOfProducts;
@@ -153,7 +174,7 @@ const productManager = new ProductManager();
 //console.log(await productManager.getProducts());
 
 // //funcion para buscar un producto por ID
-//console.log(productManager.getProductById(3));
+//console.log(await productManager.getProductById(3));
 
 // //funcion para eliminar un producto por su id
 //console.log(await productManager.deleteProduct(5));
