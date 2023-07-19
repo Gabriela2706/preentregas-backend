@@ -13,7 +13,7 @@ export default class CartManager {
   };
   //CREAR CARRITO DE PRODUCTOS
   createCart = async () => {
-    const cartOfProducts = { productOfCart: { quantity: 0, id: 0 } }; //creo un carrito de productos, con un array que tenga los productos de carrito
+    const cartOfProducts = { productOfCart: { quantity: "", id: "" } }; //creo un carrito de productos, con un array que tenga los productos de carrito
     // declaro que productos del carrito tenga dos propiedades: quantity y id
     const fileCart = await fs.promises.readFile("./db/cart.json", "utf-8");
     const carritoParseado = JSON.parse(fileCart);
@@ -68,12 +68,12 @@ export default class CartManager {
 const cartManager = new CartManager();
 
 //EJECUCION DEL CREATE (FUNCIONA, pero no agrega las propiedades del productOfCart)
-// await cartManager.createCart({
-//   productOfCart: {
-//     quantity: 4,
-//     id: 1,
-//   },
-// });
+await cartManager.createCart({
+  productOfCart: {
+    quantity: 4,
+    id: 1,
+  },
+});
 // await cartManager.createCart({
 //   productOfCart: {
 //     quantity: 4,
