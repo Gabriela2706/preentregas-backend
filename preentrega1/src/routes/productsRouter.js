@@ -24,7 +24,8 @@ routerProducts.get("/:id", async (req, rest) => {
 routerProducts.get("/cantidad", async (req, rest) => {
   const { cantidad } = req.query;
   const products = await manager.getProducts();
-  rest.send(products.slice(0, +cantidad));
+  const limit = products.slice(0, +cantidad);
+  rest.send(limit);
 });
 
 //agrega un nuevo producto (FUNCIONA CORRECTAMENTE Y CREA UN ID NUEVO SIN PROBLEMAS.)
@@ -38,11 +39,11 @@ routerProducts.post("/", async (req, res) => {
   }
 });
 
-// cambia algun dato de un producto, sin modificar el ID (NO FUNCIONA, CUANDO LO EJECUTO ME TRANSFORMA TODO EN NULL)
+// cambia algun dato de un producto, sin modificar el ID (FUNCIONA CORRECTAMENTE)
 routerProducts.put("/:id", async (req, res) => {
   const { id } = req.params;
   const product = req.body;
-  const changes = await manager.updateProducts(id, product);
+  const changes = await manager.updateProducts(+id, product);
   res.send({ update: true });
 });
 

@@ -10,7 +10,7 @@ export default class ProductManager {
 
   getProducts = async () => {
     const fileProducts = await fs.promises.readFile(
-      "./routes/products.json",
+      "./db/products.json",
       "utf8"
     );
     const productParseado = JSON.parse(fileProducts);
@@ -33,7 +33,7 @@ export default class ProductManager {
         status = true,
       } = prod;
       const fileProducts = await fs.promises.readFile(
-        "./routes/products.json",
+        "./db/products.json",
         "utf8"
       );
       const productParseado = JSON.parse(fileProducts);
@@ -65,7 +65,7 @@ export default class ProductManager {
       productParseado.push(newProduct); //Pusheo este nuevo producto al array parseado
 
       await fs.promises.writeFile(
-        "./routes/products.json",
+        "./db/products.json",
         JSON.stringify(this.products, null, 2)
       ); //Escribo en el archivo el nuevo producto pasado a stringify
       return productParseado;
@@ -78,7 +78,7 @@ export default class ProductManager {
 
   getProductById = async (idProduct) => {
     const fileProducts = await fs.promises.readFile(
-      "./routes/products.json",
+      "./db/products.json",
       "utf8"
     );
     const productParseado = JSON.parse(fileProducts);
@@ -115,11 +115,12 @@ export default class ProductManager {
       if (p.id === idUpdateProducts) {
         return { ...p, ...update };
       }
+      return p;
     });
     //---
     //Le doy permanencia a la lista nueva modificada
     await fs.promises.writeFile(
-      "./routes/products.json",
+      "./db/products.json",
       JSON.stringify(updateProducts, null, 2)
     );
     //---
@@ -137,7 +138,7 @@ export default class ProductManager {
       (product) => product.id !== idProductDelete
     );
     await fs.promises.writeFile(
-      "./routes/products.json",
+      "./db/products.json",
       JSON.stringify(newListOfProducts, null, 2)
     );
     return newListOfProducts;

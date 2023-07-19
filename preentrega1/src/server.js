@@ -6,8 +6,8 @@ const app = express(); //ejecuto la funcion express y la guardo en la constante 
 app.use(express.urlencoded({ extended: true })); //Esto me sirve para req.query para transformar el texto plano a objeto
 app.use(express.json());
 
-app.use("api/cart", routerCart);
-app.use("api/products", routerProducts);
+app.use("/api/cart", routerCart);
+app.use("/api/products", routerProducts);
 
 // const manager = new ProductManager("./files.json");
 
@@ -47,6 +47,6 @@ app.use("api/products", routerProducts);
 //   rest.send(products.filter((product) => product.stock == stock));
 // });
 
-app.listen(8080, () => {
+app.listen(8081, () => {
   console.log("conectado correctamente");
 });
