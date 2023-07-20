@@ -1,7 +1,9 @@
 import { Router } from "express";
 import CartManager from "../classCartManager.js";
+import ProductManager from "../classProductManager.js";
 const routerCart = Router();
-const managerCart = new CartManager("../routes/cart.json");
+const managerCart = new CartManager();
+const managerProduct = new ProductManager();
 
 //crea un nuevo carrito (FUNCIONA CORRECTAMENTE Y CREA UN CARRITO NUEVO SIN PROBLEMAS.)
 routerCart.post("/", async (req, res) => {
@@ -19,8 +21,11 @@ routerCart.get("/:id", async (req, res) => {
 
 //agrega el producto al array “products” del carrito seleccionado ()
 routerCart.post("/:cid/product/:pid", async (req, res) => {
-  const { cid, pid } = req.body;
-  const addproducts = await managerCart.addProductToCart(cid, pid);
+  const { cid, pid } = req.params;
+  const addproducts = await managerCart.addProductToCart(
+    await managerCart(+cid),
+    await managerProduct(+pid)
+  );
   res.send(addproducts);
 });
 

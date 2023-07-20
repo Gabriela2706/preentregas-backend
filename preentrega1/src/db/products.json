@@ -37,12 +37,12 @@
   },
   {
     "id": 4,
-    "title": "Remera Batman",
-    "description": "Remera mangas cortas al cuerpo",
-    "price": "7520",
+    "title": "Pantalon Lompa",
+    "description": "Pantalon para tirar facha",
+    "price": "9200",
     "thumbnail": "https://res.cloudinary.com/dy66f9pgr/image/upload/v1687020680/batman_djggwa.png",
-    "code": "R_25",
-    "stock": 17
+    "code": "P_22",
+    "stock": 15
   },
   {
     "id": 5,
@@ -64,110 +64,20 @@
   },
   {
     "id": 7,
-    "title": "Remera Guason",
-    "description": "Remera mangas cortas al cuerpo",
-    "price": "6420",
-    "thumbnail": "https://res.cloudinary.com/dy66f9pgr/image/upload/v1687020677/guason_cntzhv.jpg",
-    "code": "R_21",
-    "stock": 20
+    "title": "Camisa Fiaca",
+    "description": "Camisa para andar de entre casa",
+    "price": "4530",
+    "thumbnail": "",
+    "code": "C_48",
+    "stock": 13
   },
   {
     "id": 8,
-    "title": "Remera Guason",
-    "description": "Remera mangas cortas al cuerpo",
-    "price": "6420",
-    "thumbnail": "https://res.cloudinary.com/dy66f9pgr/image/upload/v1687020677/guason_cntzhv.jpg",
-    "code": "R_21",
-    "stock": 20
-  },
-  {
-    "id": 9,
-    "title": "Remera Guason",
-    "description": "Remera mangas cortas al cuerpo",
-    "price": "6420",
-    "thumbnail": "https://res.cloudinary.com/dy66f9pgr/image/upload/v1687020677/guason_cntzhv.jpg",
-    "code": "R_21",
-    "stock": 20
-  },
-  {
-    "id": 10,
-    "title": "Remera Guason",
-    "description": "Remera mangas cortas al cuerpo",
-    "price": "6420",
-    "thumbnail": "https://res.cloudinary.com/dy66f9pgr/image/upload/v1687020677/guason_cntzhv.jpg",
-    "code": "R_21",
-    "stock": 20
-  },
-  {
-    "id": 11,
-    "title": "Remera Guason",
-    "description": "Remera mangas cortas al cuerpo",
-    "price": "6420",
-    "thumbnail": "https://res.cloudinary.com/dy66f9pgr/image/upload/v1687020677/guason_cntzhv.jpg",
-    "code": "R_21",
-    "stock": 20
-  },
-  {
-    "id": 12,
-    "title": "Remera Guason",
-    "description": "Remera mangas cortas al cuerpo",
-    "price": "6420",
-    "thumbnail": "https://res.cloudinary.com/dy66f9pgr/image/upload/v1687020677/guason_cntzhv.jpg",
-    "code": "R_21",
-    "stock": 20
-  },
-  {
-    "id": 13,
-    "title": "Remera Guason",
-    "description": "Remera mangas cortas al cuerpo",
-    "price": "6420",
-    "thumbnail": "https://res.cloudinary.com/dy66f9pgr/image/upload/v1687020677/guason_cntzhv.jpg",
-    "code": "R_21",
-    "stock": 20
-  },
-  {
-    "id": 14,
-    "title": "Remera Guason",
-    "description": "Remera mangas cortas al cuerpo",
-    "price": "6420",
-    "thumbnail": "https://res.cloudinary.com/dy66f9pgr/image/upload/v1687020677/guason_cntzhv.jpg",
-    "code": "R_21",
-    "stock": 20
-  },
-  {
-    "id": 15,
-    "title": "Remera Guason",
-    "description": "Remera mangas cortas al cuerpo",
-    "price": "6420",
-    "thumbnail": "https://res.cloudinary.com/dy66f9pgr/image/upload/v1687020677/guason_cntzhv.jpg",
-    "code": "R_21",
-    "stock": 20
-  },
-  {
-    "id": 16,
-    "title": "Remera Guason",
-    "description": "Remera mangas cortas al cuerpo",
-    "price": "6420",
-    "thumbnail": "https://res.cloudinary.com/dy66f9pgr/image/upload/v1687020677/guason_cntzhv.jpg",
-    "code": "R_21",
-    "stock": 20
-  },
-  {
-    "id": 17,
-    "title": "Remera Guason",
-    "description": "Remera mangas cortas al cuerpo",
-    "price": "6420",
-    "thumbnail": "https://res.cloudinary.com/dy66f9pgr/image/upload/v1687020677/guason_cntzhv.jpg",
-    "code": "R_21",
-    "stock": 20
-  },
-  {
-    "id": 18,
-    "title": "Remera Guason",
-    "description": "Remera mangas cortas al cuerpo",
-    "price": "6420",
-    "thumbnail": "https://res.cloudinary.com/dy66f9pgr/image/upload/v1687020677/guason_cntzhv.jpg",
-    "code": "R_21",
-    "stock": 20
+    "title": "Camisa Fiaca",
+    "description": "Camisa para andar de entre casa",
+    "price": "4530",
+    "thumbnail": "",
+    "code": "C_48",
+    "stock": 13
   }
 ]

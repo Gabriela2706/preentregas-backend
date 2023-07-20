@@ -14,7 +14,6 @@ export default class CartManager {
   };
   //CREAR CARRITO DE PRODUCTOS
   createCart = async () => {
-    const cartOfProducts = { productOfCart: { quantity: "", id: "" } }; //creo un carrito de productos, con un array que tenga los productos de carrito
     // declaro que productos del carrito tenga dos propiedades: quantity y id
     const fileCart = await fs.promises.readFile(this.path, "utf-8");
     const carritoParseado = JSON.parse(fileCart);
@@ -30,7 +29,7 @@ export default class CartManager {
 
     const newCart = {
       id: this.#idCarrito++,
-      ...cartOfProducts,
+      ...(products = []),
     };
 
     this.cart = carritoParseado;
@@ -52,18 +51,40 @@ export default class CartManager {
     }
   };
   // agregar un producto al carrito de compras
-  addProductToCart = async (productInCart) => {
-    const cartProducts = await this.getCart(); // obtengo el carrito
-    let searchProductInCart = cartProducts.find(
-      (product) => product.id == productInCart // verifico si el id del producto existe o no.
-    );
-    if (searchProductInCart) {
-      return; // aca deberia retornar el cartProduct (usando el pread...) + el quantity del producto actualizado. Pero no se como plasmarlo.
-    }
+  addProductToCart = async (cidCart, pidProduct) => {
+    if (!cidCart) return "Cart  Not Found";
+    if (!pidProduct) return "Product Not Found";
+
+    const fileCart = await fs.promises.readFile(this.path, "utf-8");
+    this.cart = JSON.parse(fileCart);
+
+    let update = this.cart.map((cart) => {
+      if (cart.id === cidCart.id) {
+        if (!cidCart.products.some((product) => product.id === pidProduct.id)) {
+          let productInCart = cart.products.push({
+            id: pidProduct.id,
+            quantity: 1,
+          });
+          return {
+            ...cart,
+            ...productInCart,
+          };
+        }
+        cart.products.map((p) => {
+          if (p.id === pidProduct.id) {
+            return ++p.quantity;
+          }
+          return p;
+        });
+      }
+      return cart;
+    });
+    await fs.promises.writeFile(this.path, JSON.stringify(update, null, 2));
+    return update;
   };
 }
 
-const cartManager = new CartManager();
+//const cartManager = new CartManager();
 
 //EJECUCION DEL CREATE (FUNCIONA, pero no agrega las propiedades del productOfCart)
 // await cartManager.createCart({

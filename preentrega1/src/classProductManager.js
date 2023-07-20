@@ -5,7 +5,7 @@ export default class ProductManager {
 
   constructor() {
     this.products = [];
-    this.path = "./preentrega1/src/db/products.json"; // Ruta donde quiero archivar la informacion recibida (NO ME FUNCIONA)
+    this.path = "./preentrega1/src/db/products.json";
   }
 
   getProducts = async () => {

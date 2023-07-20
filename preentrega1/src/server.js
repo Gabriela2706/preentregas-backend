@@ -19,9 +19,9 @@ app.use(express.json());
 app.use("/api/cart", routerCart);
 app.use("/api/products", routerProducts);
 
-app.get("/", (req, res) => {
-  res.render("index", { nombre: "Gabriela" });
-});
+// app.get("/", (req, res) => {
+//   res.render("index", { nombre: "Gabriela" });
+// });
 
 // const manager = new ProductManager("./files.json");
 
