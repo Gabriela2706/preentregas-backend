@@ -5,14 +5,11 @@ export default class ProductManager {
 
   constructor() {
     this.products = [];
-    //this.path = "./files.json "; // Ruta donde quiero archivar la informacion recibida (NO ME FUNCIONA)
+    this.path = "./preentrega1/src/db/products.json"; // Ruta donde quiero archivar la informacion recibida (NO ME FUNCIONA)
   }
 
   getProducts = async () => {
-    const fileProducts = await fs.promises.readFile(
-      "./db/products.json",
-      "utf8"
-    );
+    const fileProducts = await fs.promises.readFile(this.path, "utf8");
     const productParseado = JSON.parse(fileProducts);
 
     return productParseado;
@@ -32,10 +29,7 @@ export default class ProductManager {
         category,
         status = true,
       } = prod;
-      const fileProducts = await fs.promises.readFile(
-        "./db/products.json",
-        "utf8"
-      );
+      const fileProducts = await fs.promises.readFile(this.path, "utf8");
       const productParseado = JSON.parse(fileProducts);
       //----
 
@@ -65,7 +59,7 @@ export default class ProductManager {
       productParseado.push(newProduct); //Pusheo este nuevo producto al array parseado
 
       await fs.promises.writeFile(
-        "./db/products.json",
+        this.path,
         JSON.stringify(this.products, null, 2)
       ); //Escribo en el archivo el nuevo producto pasado a stringify
       return productParseado;
@@ -77,10 +71,7 @@ export default class ProductManager {
   //OBTENCION DE PRODUCTO POR ID
 
   getProductById = async (idProduct) => {
-    const fileProducts = await fs.promises.readFile(
-      "./db/products.json",
-      "utf8"
-    );
+    const fileProducts = await fs.promises.readFile(this.path, "utf8");
     const productParseado = JSON.parse(fileProducts);
 
     const findProduct = productParseado.find(
@@ -120,7 +111,7 @@ export default class ProductManager {
     //---
     //Le doy permanencia a la lista nueva modificada
     await fs.promises.writeFile(
-      "./db/products.json",
+      this.path,
       JSON.stringify(updateProducts, null, 2)
     );
     //---
@@ -138,7 +129,7 @@ export default class ProductManager {
       (product) => product.id !== idProductDelete
     );
     await fs.promises.writeFile(
-      "./db/products.json",
+      this.path,
       JSON.stringify(newListOfProducts, null, 2)
     );
     return newListOfProducts;

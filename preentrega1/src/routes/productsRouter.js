@@ -11,21 +11,19 @@ routerProducts.get("/", async (req, res) => {
 });
 
 //obtiene productos por id (FUNCIONA CORRECTAMENTE)
-routerProducts.get("/:id", async (req, rest) => {
+routerProducts.get("/:id", async (req, res) => {
   const { id } = req.params;
   const products = await manager.getProductById(id);
-  rest.send(products);
+  res.send(products);
   //products.find((product) => product.id == id);
 });
 
 //devuelve una nueva lista recortada dependiendo la cantidad que que pongas en cantidad.
-//(NO FUNCIONA, NO ENCUENTRO EL ERROR)
-//PROBE CON: /?CANTIDAD=3 /?=3 /=3 /CANTIDAD?CANTIDAD=3
-routerProducts.get("/cantidad", async (req, rest) => {
+routerProducts.get("/", async (req, res) => {
   const { cantidad } = req.query;
   const products = await manager.getProducts();
-  const limit = products.slice(0, +cantidad);
-  rest.send(limit);
+  if (cantidad) products = products.slice(0, +cantidad);
+  res.send(products);
 });
 
 //agrega un nuevo producto (FUNCIONA CORRECTAMENTE Y CREA UN ID NUEVO SIN PROBLEMAS.)
