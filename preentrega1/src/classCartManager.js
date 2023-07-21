@@ -29,7 +29,7 @@ export default class CartManager {
 
     const newCart = {
       id: this.#idCarrito++,
-      ...(products = []),
+      products: [],
     };
 
     this.cart = carritoParseado;
@@ -47,7 +47,7 @@ export default class CartManager {
     if (findCart) {
       return findCart;
     } else {
-      return `El carrito con id ${idProduct} no se genero aun`;
+      return `El carrito con id ${idCart} no se genero aun`;
     }
   };
   // agregar un producto al carrito de compras
@@ -88,26 +88,10 @@ export default class CartManager {
 
 //EJECUCION DEL CREATE (FUNCIONA, pero no agrega las propiedades del productOfCart)
 // await cartManager.createCart({
-//   productOfCart: {
-//     quantity: 4,
-//     id: 1,
-//   },
-// });
-// await cartManager.createCart({
-//   productOfCart: {
-//     quantity: 4,
-//     id: 2,
-//   },
-// });
-// await cartManager.createCart({
-//   productOfCart: {
-//     quantity: 4,
-//     id: 4,
-//   },
-// });
-// await cartManager.createCart({
-//   productOfCart: {
-//     quantity: 4,
-//     id: 6,
-//   },
+//   id: 0,
+//   products: [
+//     { id: 1, quantity: 2 },
+
+//     { id: 1, quantity: 2 },
+//   ],
 // });

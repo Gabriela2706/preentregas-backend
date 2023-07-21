@@ -23,8 +23,8 @@ routerCart.get("/:id", async (req, res) => {
 routerCart.post("/:cid/product/:pid", async (req, res) => {
   const { cid, pid } = req.params;
   const addproducts = await managerCart.addProductToCart(
-    await managerCart(+cid),
-    await managerProduct(+pid)
+    await managerCart.getCartById(+cid),
+    await managerProduct.getProductById(+pid)
   );
   res.send(addproducts);
 });
