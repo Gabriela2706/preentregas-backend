@@ -4,7 +4,12 @@ const routerProducts = Router();
 const manager = new ProductManager("../routes/products.json");
 
 //devuelve una nueva lista recortada dependiendo la cantidad que que pongas en cantidad.
-
+routerProducts.get("/", async (req, res) => {
+  const { cantidad } = req.query;
+  let products = await manager.getProducts();
+  if (cantidad) products = products.slice(0, +cantidad);
+  res.send(products);
+});
 //obtiene productos por id (FUNCIONA CORRECTAMENTE)
 routerProducts.get("/:id", async (req, res) => {
   const { id } = req.params;

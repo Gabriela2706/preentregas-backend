@@ -3,7 +3,7 @@
     "id": 0,
     "title": "Pantalon Lompa",
     "description": "Pantalon over size tela liviana ",
-    "Price": 15200,
+    "price": 15200,
     "code": "P_01",
     "stock": "32",
     "category": "Pantalon"
@@ -12,7 +12,7 @@
     "id": 1,
     "title": "Pantalon Memory",
     "description": "Pantalon estampado vintage ",
-    "Price": 15200,
+    "price": 15200,
     "code": "P_01",
     "stock": "32",
     "category": "Pantalon"
@@ -21,7 +21,7 @@
     "id": 2,
     "title": "Pantalon Soft",
     "description": "Pantalon Elastizado Beige",
-    "Price": 13520,
+    "price": 13520,
     "code": "C_01",
     "stock": "0",
     "category": "Pantalon"
