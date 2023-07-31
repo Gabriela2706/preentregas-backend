@@ -79,5 +79,13 @@
     "thumbnail": "",
     "code": "C_48",
     "stock": 13
+  },
+  {
+    "id": 9,
+    "title": "Pantalon Socket",
+    "description": "Tela Gabardina",
+    "stock": "20",
+    "price": "11200",
+    "code": "P_025"
   }
 ]

@@ -1,19 +1,23 @@
-{{! Se renderiza en ./api/views/realTimeProducts }}
-
-<script src="/socket.io/socket.io.js"></script>
-<script src="/js/socketio.js"></script>
-
 <div>
   <h1>Ingreso de Stock</h1>
   <div>
     <ul>
-      <li>Nombre: <input id="nombre" type="text" /> </li>
-      <li>Descripcion: <input id="description" type="text" /> </li>
-      <li>Precio: <input id="precio" type="text" /> </li>
-      <li>Stock disponible: <input id="stockDisp" type="text" /> </li>
-      <li></li>
+      <li>Nombre: <input id="title" name="title" type="text" /> </li>
+      <li>Descripcion:
+        <input id="description" name="description" type="text" />
+      </li>
+      <li>Precio: <input id="price" name="price" type="number" /> </li>
+      <li>Stock disponible:
+        <input id="stock" name="stock" type="number" />
+      </li>
+      <li>Codigo: <input id="code" name="code" type="text" /></li>
     </ul>
-    <button onclick="subirInfo()">Enviar!</button>
+    <button type="button" id="subirInfo">Enviar!</button>
   </div>
 
 </div>
+
+{{! Se renderiza en ./api/views/realTimeProducts }}
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/socketio.js"></script>

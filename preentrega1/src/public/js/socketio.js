@@ -2,17 +2,24 @@
 console.log("hola front");
 const socketCliente = io();
 
-function subirInfo() {
-  // funcion para que recolecte la informacion del input y la plasme en la consola.
-  let infoProducts = [
-    (inputNombre = document.getElementById("nombre")),
-    (inputDescription = document.getElementById("description")),
-    (inputPrecio = document.getElementById("precio")),
-    (inputStock = document.getElementById("stockDisp")),
-  ];
+let subirInfo = document.getElementById("subirInfo");
+subirInfo.addEventListener("click", () => {
+  const title = document.getElementById("title").value;
+  const description = document.getElementById("description").value;
+  const price = document.getElementById("price").value;
+  const stock = document.getElementById("stock").value;
+  const code = document.getElementById("code").value;
+
+  infoProducts = {
+    title,
+    description,
+    stock,
+    price,
+    code,
+  };
 
   socketCliente.emit("subirProductos", infoProducts);
-}
+});
 
 // socket.on("bienvenida", (data) => {
 //   console.log(`mensaje del back para el front: ${data}`);

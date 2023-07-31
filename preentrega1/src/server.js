@@ -5,6 +5,7 @@ import routerProducts from "./routes/productsRouter.js";
 import routerCart from "./routes/cartRouter.js";
 import routerViews from "./routes/productsViewsRouter.js";
 import { Server as SocketServer } from "socket.io";
+import ProductManager from "./classProductManager.js";
 
 const app = express(); //ejecuto la funcion express y la guardo en la constante app
 
@@ -31,15 +32,18 @@ const appServer = app.listen(8081, () => {
 });
 
 // envoltorio de socke io
-
 const io = new SocketServer(appServer);
-// conexion con el cliente
 
-io.on("connection", (SocketServer) => {
+// conexion con el cliente
+const prodManager = new ProductManager();
+io.on("connection", async (SocketServer) => {
   console.log(`Cliente se ha conectado con el id ${SocketServer.id}`);
 
-  SocketServer.on("subirProductos", (data) => {
-    console.log(`Se subio el siguiente producto:${data} `);
+  SocketServer.on("subirProductos", async (data) => {
+    console.log(data);
+    await prodManager.addProducts(data);
+
+    //console.log(`Se subio el siguiente producto:${data} `);
   });
   //             evento        msj del evento
   // socket.emit("bienvenida", "Bienvenidx a mi tienda!"); //con emit envio un msj al front.
