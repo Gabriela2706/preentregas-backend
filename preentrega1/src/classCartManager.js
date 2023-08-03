@@ -14,7 +14,6 @@ export default class CartManager {
   };
   //CREAR CARRITO DE PRODUCTOS
   createCart = async () => {
-    // declaro que productos del carrito tenga dos propiedades: quantity y id
     const fileCart = await fs.promises.readFile(this.path, "utf-8");
     const carritoParseado = JSON.parse(fileCart);
 
